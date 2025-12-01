@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 // API Function
 const registerUser = async (data: any) => {
-  const response = await axios.post('http://localhost:3000/user/register', data);
+  const response = await axios.post('https://ia03-userregistrationapiwithreactfrontend.onrender.com', data);
   return response.data;
 };
 
