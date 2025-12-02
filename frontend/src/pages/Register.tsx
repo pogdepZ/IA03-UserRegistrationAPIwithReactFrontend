@@ -3,9 +3,14 @@ import { useMutation } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
 
-// API Function
+
+const localLink = 'http://localhost:3000/user/register';
+const globalLink = 'https://ia03-userregistrationapiwithreactfrontend.onrender.com/user/register';
+
+console.log(globalLink, localLink)
+
 const registerUser = async (data: any) => {
-  const response = await axios.post('https://ia03-userregistrationapiwithreactfrontend.onrender.com/user/register', data);
+  const response = await axios.post(globalLink, data);
   return response.data;
 };
 
@@ -14,18 +19,17 @@ export default function Register() {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  // React Query Mutation
+
   const mutation = useMutation({
     mutationFn: registerUser,
     onSuccess: () => {
       setSuccessMsg("Registration Successful! You can now login.");
       setErrorMsg('');
-      reset(); // Clear form
+      reset(); 
     },
     onError: (error: AxiosError<any>) => {
       setSuccessMsg('');
       const message = error.response?.data?.message || "Registration failed";
-      // Handle array of errors from NestJS ValidationPipe
       if (Array.isArray(message)) {
         setErrorMsg(message.join(', '));
       } else {

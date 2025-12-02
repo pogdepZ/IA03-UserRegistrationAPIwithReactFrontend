@@ -2,7 +2,7 @@ import { ConflictException, Injectable, InternalServerErrorException } from '@ne
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-// 1. Import UserDocument
+
 import { User, UserDocument } from './schemas/user.schema'; 
 import { CreateUserDto } from './dto/create-user.dto';
 
@@ -10,7 +10,6 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  // 2. Sửa Promise<User> thành Promise<UserDocument>
   async create(createUserDto: CreateUserDto): Promise<UserDocument> { 
     const { email, password } = createUserDto;
 

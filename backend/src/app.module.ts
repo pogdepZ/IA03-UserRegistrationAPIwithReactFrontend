@@ -4,7 +4,6 @@ import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
-    // Connect to MongoDB (ensure MongoDB is running)
     MongooseModule.forRoot(process.env.MONGO_URL as string), 
     UserModule,
   ],

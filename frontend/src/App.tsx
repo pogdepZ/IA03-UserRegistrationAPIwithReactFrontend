@@ -11,7 +11,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-          {/* Navigation Bar */}
           <nav className="p-4 bg-white shadow-sm flex justify-between items-center">
             <Link to="/" className="text-xl font-bold text-blue-600">IA03 System</Link>
             <div className="space-x-4">
@@ -19,8 +18,6 @@ function App() {
               <Link to="/register" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Sign Up</Link>
             </div>
           </nav>
-
-          {/* Page Content */}
           <div className="p-8">
             <Routes>
               <Route path="/" element={<Home />} />
