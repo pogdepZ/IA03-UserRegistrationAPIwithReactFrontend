@@ -4,13 +4,13 @@ import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
 
 
-const localLink = 'http://localhost:3000/user/register';
-const globalLink = 'https://ia03-userregistrationapiwithreactfrontend.onrender.com/user/register';
+const localLink = 'http://localhost:3000/register';
+const globalLink = 'https://ia03-userregistrationapiwithreactfrontend.onrender.com/register';
 
 console.log(globalLink, localLink)
 
 const registerUser = async (data: any) => {
-  const response = await axios.post(globalLink, data);
+  const response = await axios.post(localLink, data);
   return response.data;
 };
 

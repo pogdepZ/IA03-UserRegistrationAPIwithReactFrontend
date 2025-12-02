@@ -4,7 +4,7 @@ import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URL as string), 
+    MongooseModule.forRoot(process.env.MONGO_LOCAL_URL as string), 
     UserModule,
   ],
 })
