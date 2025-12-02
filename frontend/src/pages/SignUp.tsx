@@ -10,7 +10,7 @@ const globalLink = 'https://ia03-userregistrationapiwithreactfrontend.onrender.c
 console.log(globalLink, localLink)
 
 const registerUser = async (data: any) => {
-  const response = await axios.post(localLink, data);
+  const response = await axios.post(globalLink, data);
   return response.data;
 };
 
